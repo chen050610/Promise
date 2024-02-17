@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="../jquery.js"></script>
+  <script>
+    $(()=>{
+      $('#getMsg').click(()=>{
+        const p = new Promise((resolve, reject)=>{
+          $.ajax({
+            url: 'https://api.xygeng.cn/one', // 请求的 URL 地址
+            method: 'GET', // 请求的 HTTP 方法
+            dataType: 'json', // 期望的响应数据类型
+            success: function(data) { // 成功回调函数，data 为响应数据
+              resolve(data.data.content)
+            },
+            error: function(xhr, status, error) { // 失败回调函数，xhr 为 XMLHttpRequest 对象，status 为错误状态（例如 'Not Found'），error 为错误对象
+              reject(error)
+            }
+          });
+        })
+        p.then((value)=>{alert(value)},(reason)=>{
+          console.log(reason)})
+
+
+
+        // $.ajax({
+        //   url: 'https://api.xygeng.cn/one', // 请求的 URL 地址
+        //   method: 'GET', // 请求的 HTTP 方法
+        //   dataType: 'json', // 期望的响应数据类型
+        //   success: function(data) { // 成功回调函数，data 为响应数据
+        //     console.log('请求成功:', data.data.content);
+        //   },
+        //   error: function(xhr, status, error) { // 失败回调函数，xhr 为 XMLHttpRequest 对象，status 为错误状态（例如 'Not Found'），error 为错误对象
+        //     console.error('请求失败:', error);
+        //   }
+        // });
+      })
+
+
+
+
+    })
+  </script>
+
+</head>
+<body>
+<button id="getMsg">点我</button>
+</body>
+</html>

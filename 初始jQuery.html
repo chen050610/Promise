@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.js"></script>
+    <script>
+        // window.onload
+        // 之前使用这个会有弊端如果页面有图片的话需要等图片加载玩
+        $(document).ready(()=>{})//当整个页面结构加载
+        $(function (){
+            console.log(111)
+            $('#btn').click(()=>{
+                alert(222)
+                $('#username1').text('hahhah')//text括号没有东西是获取东西
+            })
+
+
+            console.log($("input[type='radio']").val())
+            console.log($('#city').val())
+
+
+
+        })//上面的简写
+    </script>
+
+</head>
+<body>
+<button id="btn">点我</button>
+<input type="text" id="username">账号 <br> <span id="username1"></span>
+<input type="password" id="password">密码
+<input type="radio" id="gender_man" name="gender" value="man">男
+<input type="radio" id="gender_women" name="gender" value="women">女
+<select id="city">
+    <option value="beijing">北京</option>
+    <option value="nanjing">南京</option>
+    <option value="beijin">北京</option>
+</select>
+<br><br>
+<button id="changeCity">点</button>
+</body>
+</html>

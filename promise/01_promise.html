@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../jquery.js"></script>
+    <script>
+        $(()=>{
+            $('#btn').click(()=>{
+                function rand (m,n){
+                    return  Math.ceil(Math.random()*(n-m+1)) + m-1;
+                }
+                // setTimeout(()=>{
+                //     let n = rand(1,100)
+                //     if (n <= 30){alert("100原子")}else{alert('再接再厉')}
+                // },2000)
+
+
+                // promise的实现,本质上是构造函数
+                //rosolve解决 函数类型的数据
+                //reject拒绝 函数类性的数据
+                const P = new Promise((resolve,reject) => {
+                    setTimeout(()=>{
+                        let n = rand(1,100)
+                        if (n <= 30){
+                            resolve(n)//将 promise 对象P的状态设置为 成功
+                        }else{
+                            reject(n)//将 promise 对象P的状态设置为 失败
+                        }
+                    },1000)
+                });
+
+                P.then((value)=>{//第一个是成功的回调
+                    alert('100圆子'+value)
+                },(reason)=>{//失败的回调
+                    alert('再接再厉'+reason)
+                })
+
+            })
+        })
+    </script>
+</head>
+<body>
+<button id="btn">点我们抽奖</button>
+</body>
+</html>

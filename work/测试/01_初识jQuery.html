@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>01_初识jQuery</title>
+  <script>
+    window.onload = ()=>{
+      var btn1 = document.querySelector("#btn1")
+      btn1.onm
+      btn1.addEventListener('click',()=>{
+        alert(document.getElementById('username').value)
+      })
+       }
+  </script>
+  <script src="./js/jquery-1.10.1.js"></script>
+  <script>
+
+  </script>
+</head>
+<body>
+<!--
+需求: 点击"确定"按钮, 提示输入的值
+-->
+
+用户名: <input type="text" id="username">
+<button id="btn1">确定(原生版)</button>
+<button id="btn2">确定(jQuery版)</button>
+
+</body>
+
+</html>
